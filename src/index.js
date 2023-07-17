@@ -2,13 +2,15 @@ import Notiflix from 'notiflix';
 import axios from "axios";
 import SimpleLightbox from "simplelightbox";
 import "simplelightbox/dist/simple-lightbox.min.css";
+import { renderImages } from './partials/funktion';
+
 
 const BASE_URL = 'https://pixabay.com/api/?key=38025411-600b4c6c49c6550b6dbadacb0';
 
 let formEl = document.querySelector('.search-form');
 let inputEl = document.querySelector('input[name="searchQuery"]');
 let btnLoadMore = document.querySelector('.load-more');
-let gallery = document.querySelector('.gallery');
+
 let currentPage = 1;
 let lightbox = new SimpleLightbox('.gallery a', {
   captionDelay: 250,
@@ -72,13 +74,9 @@ async function fetchImages(searchQuery) {
   const response = await axios.get(`${BASE_URL}&q=${searchQuery}&image_type=photo&orientation=horizontal&safesearch=true&page=${currentPage}&per_page=40`);
   return response.data;
 }
+//////////
 
-function renderImages(images) {
-  let markup = images.map(image => createImageMarkup(image)).join('');
-  gallery.innerHTML = markup;
-}
-
-function createImageMarkup({ webformatURL, tags, likes, views, comments, downloads, largeImageURL }) {
+export function createImageMarkup({ webformatURL, tags, likes, views, comments, downloads, largeImageURL }) {
   return `<div class="photo-card">
     <a href="${largeImageURL}" class="link">
       <img src="${webformatURL}" alt="${tags}" loading="lazy" />
