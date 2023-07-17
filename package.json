@@ -1,7 +1,7 @@
 {
   "name": "parcel-project-template",
   "version": "2.0.0",
-  "description": "",
+  "description": "This project was created with Parcel. For familiarization and setting additional features [refer to documentation](https://parceljs.org/).",
   "homepage": "https://xxx3105.github.io/goit-js-hw-11/",
   "scripts": {
     "start": "parcel src/*.html",
@@ -18,10 +18,12 @@
     "url": "https://github.com/goitacademy/parcel-project-template/issues"
   },
   "dependencies": {
+    "@swc/helpers": "^0.5.1",
     "axios": "^1.4.0",
     "flatpickr": "^4.6.13",
     "modern-normalize": "^1.1.0",
     "notiflix": "^3.2.6",
+    "regenerator-runtime": "^0.13.11",
     "simplelightbox": "^2.14.1"
   },
   "devDependencies": {
@@ -32,4 +34,5 @@
     "posthtml-include": "^1.7.4"
   },
   "browserslist": "> 0.5%, last 2 versions, not dead"
+   
 }
